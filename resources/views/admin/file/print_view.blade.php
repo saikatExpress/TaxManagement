@@ -26,7 +26,16 @@
                 </div>
                 <div class="content-item">
                     <p>
-                        2.NID/Passport number(if no nid)
+                        2.Assesment Year
+                    </p>
+                    <p>
+                        :
+                    </p>
+                </div>
+
+                <div class="content-item">
+                    <p>
+                        3.Address
                     </p>
                     <p>
                         :
@@ -35,7 +44,7 @@
 
                 <div class="d-flex align-items-center">
                     <p>
-                        3.TIN :
+                        4.TIN No :
                     </p>
 
                     <div class="d-flex align-items-center">
@@ -53,6 +62,33 @@
                         <div style="border:1px solid black; width:20px;height:20px;"></div>
                     </div>
 
+                </div>
+
+                <div class="content-item">
+                    <p>
+                        5.Mobile No
+                    </p>
+                    <p>
+                        :
+                    </p>
+                </div>
+
+                <div class="content-item">
+                    <p>
+                        6.NID No
+                    </p>
+                    <p>
+                        :
+                    </p>
+                </div>
+
+                <div class="content-item">
+                    <p>
+                        7.Source of Income
+                    </p>
+                    <p>
+                        :
+                    </p>
                 </div>
 
                 <div class="content-item">

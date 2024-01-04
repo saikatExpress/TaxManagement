@@ -20,8 +20,8 @@ class PdfController extends Controller
 
     public function pdf($id)
     {
-        $data = ['title' => 'domPDF in Laravel 10'];
-        $pdf = PDF::loadView('pdf.document', $data);
+        $pdf = Client::find($id);
+        $pdf = PDF::loadView('admin.file.document', compact('pdf'));
         return $pdf->download('document.pdf');
     }
 }
