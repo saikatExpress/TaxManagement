@@ -12,6 +12,10 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
+
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link rel='shortcut icon' type='image/x-icon' href='{{ asset('assets/img/favicon.ico') }}' />
@@ -194,49 +198,13 @@
 
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i data-feather="briefcase"></i><span>Widgets</span>
+                                <i data-feather="briefcase"></i><span>Jobs</span>
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
-                                <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i data-feather="command"></i>
-                                <span>Apps</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="chat.html">Chat</a></li>
-                                <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                                <li><a class="nav-link" href="blog.html">Blog</a></li>
-                                <li><a class="nav-link" href="calendar.html">Calendar</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="menu-toggle nav-link has-dropdown">
-                                <i data-feather="mail"></i>
-                                <span>Email</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="email-inbox.html">
-                                        Inbox
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="email-compose.html">
-                                        Compose
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="email-read.html">
-                                        Read
-                                    </a>
-                                </li>
+                                <li><a class="nav-link" href="{{ route('create') }}">Add Client</a></li>
+                                <li><a class="nav-link" href="widget-data.html">Client List</a></li>
+                                <li><a class="nav-link" href="{{ route('pdf.list') }}">Pdf List</a></li>
                             </ul>
                         </li>
 
@@ -364,6 +332,30 @@
     <script src="{{ asset('assets/bundles/apexcharts/apexcharts.min.js') }}"></script>
     <!-- Page Specific JS File -->
     <script src="{{ asset('assets/js/page/index.js') }}"></script>
+
+    <script src="{{ asset('assets/bundles/cleave-js/dist/cleave.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/cleave-js/dist/addons/cleave-phone.us.js') }}"></script>
+    <script src="{{ asset('assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/bundles/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/jquery-selectric/jquery.selectric.min.js') }}"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
+    <!-- Template JS File -->
+
+    <script src="{{ asset('assets/bundles/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/bundles/datatables/export-tables/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/js/page/datatables.js') }}"></script>
+
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <!-- Custom JS File -->

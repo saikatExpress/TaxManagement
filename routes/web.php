@@ -5,6 +5,7 @@ use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,6 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Auth::routes([
-//     'login' => true,
-//     'logout' => true,
-//     'register' => true,
-//     'reset' => true, // for resetting passwords
-//     'confirm' => false, // for additional password confirmations
-//     'verify' => false, // for email verification
-// ]);
 
 
 Route::get('/', function () {
@@ -51,6 +44,11 @@ Route::get('/send-email', function () {
 Route::middleware(['auth', 'user.status'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+    Route::controller(ClientController::class)->group(function(){
+        Route::get('/pdf/list', 'pdfIndex')->name('pdf.list');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/client/store', 'store')->name('client.store');
+    });
 
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
