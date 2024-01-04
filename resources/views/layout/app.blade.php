@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('custom/css/style.css') }}">
     <!-- Custom style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     <link rel='shortcut icon' type='image/x-icon' href='{{ asset('assets/img/favicon.ico') }}' />
@@ -203,7 +203,7 @@
 
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="{{ route('create') }}">Add Client</a></li>
-                                <li><a class="nav-link" href="widget-data.html">Client List</a></li>
+                                <li><a class="nav-link" href="{{ route('client.list') }}">Client List</a></li>
                                 <li><a class="nav-link" href="{{ route('pdf.list') }}">Pdf List</a></li>
                             </ul>
                         </li>

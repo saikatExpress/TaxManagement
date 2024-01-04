@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreClientRequest;
@@ -19,7 +20,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::where('status', '1')->get();
+
+        return view('admin.client.list', compact('clients'));
     }
 
     public function pdfIndex()
@@ -97,11 +100,16 @@ class ClientController extends Controller
                         break;
 
                     case 'save_pdf':
+                        $pdf = PDF::loadView('admin.file.print_view', ['pdf' => $clientObj]);
+
+
                         $destinationPath = 'public/client_' . $clientObj->id . '.pdf';
                         Storage::put($destinationPath, $clientObj);
 
+
                         $clientObj->pdf_path = $destinationPath;
                         $clientObj->save();
+
 
                         return redirect()->back()->with('success', 'Data saved and PDF generated successfully.');
                         break;

@@ -1,0 +1,82 @@
+.print_div{
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.print_div h1{
+    text-align:  center;
+    font-size: 1.8rem;
+    color: #000;
+}
+
+.printable_div{
+    border: 1px solid gray;
+}
+
+.print_section p{
+    color: #000;
+    font-size: 1rem;
+    padding: 5px;
+    margin: 5px;
+}
+
+.print_section{
+    margin-left: 1rem;
+    padding: 8px 8px 8px;
+}
+
+.content-item{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+
+.pdf_footer{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.pdf_footer p{
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.pdf_footer h2{
+    margin-bottom: 0;
+    color: #000;
+    text-align: center;
+}
+
+.pdf_footer_menu{
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Add your printable styles here */
+@media print {
+    /* Add styles to hide non-essential elements (e.g., buttons, headers) */
+    .no-print {
+        display: none;
+    }
+
+    .url-remove {
+        visibility: hidden;
+    }
+
+    @page {
+        size: A4;
+    }
+}

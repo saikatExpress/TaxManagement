@@ -19,6 +19,7 @@
                     <th>Age</th>
                     <th>Start date</th>
                     <th>Salary</th>
+                    <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,13 +29,24 @@
                             <td>{{ $pdf->name }}</td>
                             <td>
                                 <object data="{{ asset('storage/' . $pdf->pdf_path) }}" type="application/pdf" width="100%" height="500px">
-                                    <p> <a href="{{ asset('storage/' . $pdf->pdf_path) }}">Download the PDF</a></p>
+                                    <p> <a href="{{ asset('storage/' . $pdf->pdf_path) }}">{{ $pdf->name }}</a></p>
                                 </object>
                             </td>
                             <td>Edinburgh</td>
                             <td>61</td>
                             <td>2011/04/25</td>
                             <td>$320,800</td>
+                            <td>
+                                <a href="{{ route('pdf', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-solid fa-file-pdf"></i>
+                                </a>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-solid fa-print"></i>
+                                </button>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-solid fa-pen"></i>
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
 
