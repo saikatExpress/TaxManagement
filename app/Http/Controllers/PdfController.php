@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\PDF;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class PdfController extends Controller
@@ -23,5 +24,17 @@ class PdfController extends Controller
         $pdf = Client::find($id);
         $pdf = PDF::loadView('admin.file.document', compact('pdf'));
         return $pdf->download('document.pdf');
+    }
+
+    public function pdfShow($id)
+    {
+        $clientInfo = Client::where('id', $id)->first();
+
+        return view('admin.file.test', compact('clientInfo'));
+
+        $pdf = Pdf::loadView('admin.file.test', compact('clientInfo'));
+
+        return $pdf->stream('file.pdf');
+
     }
 }

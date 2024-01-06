@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('name', 250)->nullable();
             $table->string('assessment_year', 50)->nullable();
             $table->string('address', 250)->nullable();
+            $table->string('tin_no', 250)->nullable();
             $table->string('mobile_no', 250)->nullable();
             $table->string('nid_no', 250)->nullable();
             $table->string('source_income', 250)->nullable();
             $table->string('circle_of_zone', 250)->nullable();
             $table->string('total_income', 250)->nullable();
             $table->string('net_wealth', 250)->nullable();
+            $table->string('tax_paid', 250)->nullable();
             $table->string('previous_net_wealth', 250)->nullable();
             $table->string('business_capital', 250)->nullable();
             $table->string('accretion_in_wealth', 250)->nullable();

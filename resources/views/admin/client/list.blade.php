@@ -30,12 +30,12 @@
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
                                             <td>
-                                                <a href="{{ route('generate.pdf', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('pdf.load', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-file-pdf"></i>
                                                 </a>
-                                                <button class="btn btn-sm btn-primary">
+                                                <a href="{{ route('generate.pdf', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-print"></i>
-                                                </button>
+                                                </a>
                                                 <button class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-pen"></i>
                                                 </button>

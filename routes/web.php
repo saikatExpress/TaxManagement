@@ -55,6 +55,7 @@ Route::middleware(['auth', 'user.status'])->group(function(){
     Route::controller(PdfController::class)->group(function(){
         Route::get('/generate/pdf/{id}', 'generatePdf')->name('generate.pdf');
         Route::get('/pdf/{id}', 'pdf')->name('pdf');
+        Route::get('load/pdf/{id}', 'pdfShow')->name('pdf.load');
     });
 
 

@@ -65,6 +65,23 @@
     margin-right: auto;
 }
 
+.pdf_div{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+.pdf_div h6{
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.pdf_div p{
+    color:  #000;
+    margin-bottom: 0;
+    margin-left: 0.2rem;
+}
+
 /* Add your printable styles here */
 @media print {
     /* Add styles to hide non-essential elements (e.g., buttons, headers) */

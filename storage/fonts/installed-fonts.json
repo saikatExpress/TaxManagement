@@ -1,0 +1,21 @@
+{
+    "font awesome 5 brands": {
+        "normal": "font_awesome_5_brands_normal_42aa287e33773a1827e51217379344ee"
+    },
+    "font awesome 5 free": {
+        "normal": "E:\\laragon\\www\\Tax\\storage\\fonts\/font_awesome_5_free_normal_ad1e2eec215d63b0cc4ba5d81c8fb668",
+        "900": "font_awesome_5_free_900_b7651d5bbf4a94e49c9ca28ff77f2b37"
+    },
+    "material icons": {
+        "normal": "material_icons_normal_96b3f258041ed4c139eb9d9c903b59c4"
+    },
+    "nunito": {
+        "normal": "E:\\laragon\\www\\Tax\\storage\\fonts\/nunito_normal_6069ef3cff08240edbcbf712d18afe4f",
+        "600": "E:\\laragon\\www\\Tax\\storage\\fonts\/nunito_600_b1713ae8fc273089b2299b81ad0631c2",
+        "bold": "E:\\laragon\\www\\Tax\\storage\\fonts\/nunito_bold_0120b808d49e0b19fd3f00a51c0daf00",
+        "800": "nunito_800_de404233a48c73a00f8f20b0c0d5d2bf"
+    },
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_448cf7c5a9f8cf5b480d96c9606cc001"
+    }
+}

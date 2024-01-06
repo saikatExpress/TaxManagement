@@ -59,6 +59,8 @@ class ClientController extends Controller
             $clientObj->circle_of_zone           = $request->input('circle_of_zone');
             $clientObj->total_income             = $request->input('total_income');
             $clientObj->net_wealth               = $request->input('net_wealth');
+            $clientObj->tax_paid                 = $request->input('tax_paid');
+            $clientObj->tin_no                   = $request->input('tin_no');
             $clientObj->previous_net_wealth      = $request->input('previous_net_wealth');
             $clientObj->business_capital         = $request->input('business_capital');
             $clientObj->accretion_in_wealth      = $request->input('accretion_in_wealth');
