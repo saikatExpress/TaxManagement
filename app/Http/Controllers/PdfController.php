@@ -30,11 +30,11 @@ class PdfController extends Controller
     {
         $clientInfo = Client::where('id', $id)->first();
 
-        return view('admin.file.test', compact('clientInfo'));
+        // return view('admin.file.test', compact('clientInfo'));
 
         $pdf = Pdf::loadView('admin.file.test', compact('clientInfo'));
 
-        return $pdf->stream('file.pdf');
+        return $pdf->download('file.pdf');
 
     }
 }
