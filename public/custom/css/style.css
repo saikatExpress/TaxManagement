@@ -1,8 +1,4 @@
 .print_div{
-    width: 75%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 1rem;
 }
 
@@ -30,9 +26,19 @@
 
 .content-item{
     display: flex;
-    width: 45%;
-    justify-content: space-between;
 }
+
+span{
+    color: #000;
+}
+
+.my_class{
+    display: flex;
+}
+
+/* .my_class span{
+    margin-left: 33px;
+} */
 
 .pdf_footer{
     width: 80%;

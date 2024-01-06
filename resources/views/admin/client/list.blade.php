@@ -33,12 +33,12 @@
                                                 <a href="{{ route('pdf.load', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-file-pdf"></i>
                                                 </a>
-                                                <a href="{{ route('generate.pdf', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('generate.print', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-print"></i>
                                                 </a>
-                                                <button class="btn btn-sm btn-primary">
+                                                <a href="{{ route('edit', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-pen"></i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

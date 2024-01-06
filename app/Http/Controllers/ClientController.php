@@ -27,7 +27,7 @@ class ClientController extends Controller
 
     public function pdfIndex()
     {
-        $pdfs = Client::all();
+        $pdfs = Client::whereNotNull('pdf_path')->get();
 
         return view('admin.file.pdf_view', compact('pdfs'));
     }
@@ -86,32 +86,39 @@ class ClientController extends Controller
             $client = $clientObj->save();
 
             DB::commit();
+
             if($client){
                 $action = $request->input('action');
 
                 switch ($action) {
                     case 'print':
-                        // Handle print action (e.g., generate/print a view)
-                        return view('print_view', compact('clientObj'));
-                        break;
+                        $id = $clientObj->id;
 
+                        $clientInfo = Client::find($id);
+                        return view('admin.file.print_view', compact('clientInfo'));
+                        break;
                     case 'save_print':
-                        // Handle save & print action
-                        // (e.g., generate/print a view and save data to database)
-                        return view('admin.file.print_view', compact('clientObj'));
+                        $id = $clientObj->id;
+
+                        $clientInfo = Client::find($id);
+                        return view('admin.file.print_view', compact('clientInfo'));
                         break;
 
                     case 'save_pdf':
-                        $pdf = PDF::loadView('admin.file.print_view', ['pdf' => $clientObj]);
+                        $id = $clientObj->id;
+                        $clientInfo = Client::find($id);
 
+                        $pdf = PDF::loadView('admin.file.show_pdf', ['clientInfo' => $clientInfo]);
 
-                        $destinationPath = 'public/client_' . $clientObj->id . '.pdf';
-                        Storage::put($destinationPath, $clientObj);
+                        // Get the PDF content
+                        $pdfContent = $pdf->output();
 
+                        $directory = 'clientsFile';
 
-                        $clientObj->pdf_path = $destinationPath;
-                        $clientObj->save();
-
+                        // Define the destination path for storing the PDF file
+                        $destinationPath = public_path($directory . '/client_' . $clientInfo->id . '.pdf');
+                        $pdf->save($destinationPath);
+                        $clientInfo->update(['pdf_path' => $destinationPath]);
 
                         return redirect()->back()->with('success', 'Data saved and PDF generated successfully.');
                         break;
@@ -132,9 +139,11 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show(Client $client, $id)
     {
-        //
+        $client = Client::find($id);
+
+        return view('admin.client.edit', compact('client'));
     }
 
     /**
@@ -156,8 +165,26 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client)
+    public function destroy(Client $client, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $client = Client::find($id);
+
+            if(!$client){
+                return response()->json(['message' => 'Client not found']);
+            }
+
+            $res = $client->delete();
+
+            DB::commit();
+            if($res){
+                return response()->json(['message' => 'Client deleted']);
+            }
+        } catch (\Exception $e) {
+            DB::rollback();
+            info($e);
+        }
     }
 }

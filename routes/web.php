@@ -50,12 +50,15 @@ Route::middleware(['auth', 'user.status'])->group(function(){
         Route::get('/pdf/list', 'pdfIndex')->name('pdf.list');
         Route::get('/create', 'create')->name('create');
         Route::post('/client/store', 'store')->name('client.store');
+        Route::get('/edit/{id}', 'show')->name('edit');
+        Route::get('/pdf/delete/{id}', 'destroy');
     });
 
     Route::controller(PdfController::class)->group(function(){
         Route::get('/generate/pdf/{id}', 'generatePdf')->name('generate.pdf');
         Route::get('/pdf/{id}', 'pdf')->name('pdf');
         Route::get('load/pdf/{id}', 'pdfShow')->name('pdf.load');
+        Route::get('/generate/print/{id}', 'generatePrint')->name('generate.print');
     });
 
 

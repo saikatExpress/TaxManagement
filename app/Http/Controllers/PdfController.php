@@ -37,4 +37,11 @@ class PdfController extends Controller
         return $pdf->download('file.pdf');
 
     }
+
+    public function generatePrint($id)
+    {
+        $clientInfo = Client::find($id);
+
+        return view('admin.file.print_view', compact('clientInfo'));
+    }
 }
