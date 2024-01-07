@@ -14,7 +14,8 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Position</th>
+                                        <th>TIN No</th>
+                                        <th>NID</th>
                                         <th>Age</th>
                                         <th>Start date</th>
                                         <th>Salary</th>
@@ -23,9 +24,10 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($clients as $key => $pdf)
-                                        <tr>
+                                        <tr class="list-item">
                                             <td>{{ $pdf->name }}</td>
-                                            <td>Edinburgh</td>
+                                            <td>{{ $pdf->tin_no }}</td>
+                                            <td>{{ $pdf->nid_no }}</td>
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
@@ -39,6 +41,9 @@
                                                 <a href="{{ route('edit', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
                                                     <i class="fas fa-solid fa-pen"></i>
                                                 </a>
+                                                <button class="btn btn-sm btn-danger deleteButton" data-id="{{ $pdf->id }}" >
+                                                    <i class="fas fa-solid fa-trash"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -52,10 +57,53 @@
     </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
-<script>
-    $(document).ready(function(){
-        // alert(1);
-    });
-</script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.deleteButton').click(function() {
+                var clientId = $(this).data('id');
+                var listItem = $(this).closest(
+                    '.list-item'); // Adjust the selector based on your HTML structure
+
+                // Use SweetAlert to confirm the deletion
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'You won\'t be able to revert this!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If the user confirms, send an AJAX request to delete the pigeon
+                        $.ajax({
+                            type: 'GET',
+                            url: '/client/delete/' + clientId,
+                            success: function(response) {
+                                // Remove the deleted item from the DOM
+                                listItem.remove();
+
+                                // Show a success message
+                                Swal.fire('Deleted!', response.message, 'success');
+                            },
+                            error: function(error) {
+                                // Show an error message
+                                Swal.fire('Error!', error.responseJSON.message,
+                                    'error');
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            // alert(1);
+        });
+    </script>
 @endsection

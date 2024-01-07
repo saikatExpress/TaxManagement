@@ -7,13 +7,14 @@
                 {{ session('success') }}
             </div>
         @endif
-        <form id="clientForm" style="width: 100%;" action="{{ route('client.store') }}" method="post" enctype="multipart/form-data">
+        <form id="clientForm" style="width: 100%;" action="{{ route('client.edit') }}" method="post" enctype="multipart/form-data">
             @csrf
                 <div class="row">
 
 
 
                     <input type="hidden" name="action" id="action" value="">
+                    <input type="hidden" name="client_id" value="{{ $client->id }}"></input>
 
 
                     <div class="col-12 col-md-6 col-lg-6">
@@ -555,7 +556,7 @@
                     </div>
                     <div class="col-4">
                         <div style="text-align:center;">
-                            <input class="btn btn-sm btn-primary" type="button" id="savePrintBtn" value="Update & Print">
+                            <input class="btn btn-sm btn-primary" type="button" id="updatePrintBtn" value="Update & Print">
                         </div>
                     </div>
                     <div class="col-4">
@@ -586,7 +587,7 @@
         });
 
         // Handle Save & Print button click
-        $('#savePrintBtn').click(function() {
+        $('#updatePrintBtn').click(function() {
             submitForm('save_print');
         });
 

@@ -159,13 +159,94 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $validatedData = $request->validated();
+
+            $clientid = $request->input('client_id');
+
+            $client = Client::find($clientid);
+            if($client){
+                DB::commit();
+                $res = $client->update($validatedData);
+
+                if($res){
+                    $action = $request->input('action');
+
+                    switch ($action) {
+                        case 'print':
+                            $id = $clientid;
+
+                            $clientInfo = Client::find($id);
+                            return view('admin.file.print_view', compact('clientInfo'));
+                            break;
+                        case 'save_print':
+                            $id = $clientid;
+
+                            $clientInfo = Client::find($id);
+                            return view('admin.file.print_view', compact('clientInfo'));
+                            break;
+
+                        case 'save_pdf':
+                            $id = $clientid;
+                            $clientInfo = Client::find($id);
+
+                            $pdf = PDF::loadView('admin.file.show_pdf', ['clientInfo' => $clientInfo]);
+
+                            // Get the PDF content
+                            $pdfContent = $pdf->output();
+
+                            $directory = 'clientsFile';
+
+                            // Define the destination path for storing the PDF file
+                            $destinationPath = public_path($directory . '/client_' . $clientInfo->id . '.pdf');
+                            $pdf->save($destinationPath);
+                            $clientInfo->update(['pdf_path' => $destinationPath]);
+
+                            return redirect()->back()->with('success', 'Data saved and PDF generated successfully.');
+                            break;
+
+                        default:
+                            return redirect()->back()->with('error', 'Invalid action.');
+                            break;
+                    }
+                }
+            }
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            info($e);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Client $client, $id)
+    {
+        try {
+            DB::beginTransaction();
+
+            $client = Client::find($id);
+
+            if(!$client){
+                return response()->json(['message' => 'Client not found']);
+            }
+
+            $res = $client->delete();
+
+            DB::commit();
+            if($res){
+                return response()->json(['message' => 'Client deleted']);
+            }
+        } catch (\Exception $e) {
+            DB::rollback();
+            info($e);
+        }
+    }
+
+    public function clientDestroy($id)
     {
         try {
             DB::beginTransaction();

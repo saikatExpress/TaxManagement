@@ -49,9 +49,11 @@ Route::middleware(['auth', 'user.status'])->group(function(){
         Route::get('/client/list', 'index')->name('client.list');
         Route::get('/pdf/list', 'pdfIndex')->name('pdf.list');
         Route::get('/create', 'create')->name('create');
+        Route::post('/client/edit', 'update')->name('client.edit');
         Route::post('/client/store', 'store')->name('client.store');
         Route::get('/edit/{id}', 'show')->name('edit');
         Route::get('/pdf/delete/{id}', 'destroy');
+        Route::get('/client/delete/{id}', 'clientDestroy');
     });
 
     Route::controller(PdfController::class)->group(function(){

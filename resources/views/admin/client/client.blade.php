@@ -533,7 +533,7 @@
                                                 <i class="fas fa-solid fa-file-signature"></i>
                                             </div>
                                         </div>
-                                        <input type="text" name="submission_date" class="form-control">
+                                        <input type="date" name="submission_date" class="form-control">
                                     </div>
                                     @error('submission_date')
                                         <span class="invalid-feedback" role="alert">
