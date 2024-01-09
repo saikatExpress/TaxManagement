@@ -17,7 +17,7 @@
                                         <th>TIN No</th>
                                         <th>NID</th>
                                         <th>Age</th>
-                                        <th>Start date</th>
+                                        <th>Submission Date</th>
                                         <th>Salary</th>
                                         <th>Action</th>
                                     </tr>
@@ -29,7 +29,7 @@
                                             <td>{{ $pdf->tin_no }}</td>
                                             <td>{{ $pdf->nid_no }}</td>
                                             <td>61</td>
-                                            <td>2011/04/25</td>
+                                            <td>{{ dateTimeFormat($pdf->submission_date) }}</td>
                                             <td>$320,800</td>
                                             <td>
                                                 <a href="{{ route('pdf.load', ['id' => $pdf->id]) }}" class="btn btn-sm btn-primary">
