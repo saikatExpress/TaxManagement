@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>TS WEB - An Advanced technology</title>
+    <title>Bizz Soluations | Admin</title>
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
     <!-- Template CSS -->
@@ -185,7 +185,7 @@
 
                     <div class="sidebar-brand">
                         <a href="{{ route('dashboard') }}"> <img alt="image" src="{{ asset('assets/img/logo.png') }}" class="header-logo" /> <span
-                            class="logo-name">TS WEB</span>
+                            class="logo-name">Bizz Solutions</span>
                         </a>
                     </div>
 

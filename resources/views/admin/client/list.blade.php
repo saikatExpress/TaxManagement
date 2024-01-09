@@ -16,7 +16,7 @@
                                         <th>Name</th>
                                         <th>TIN No</th>
                                         <th>NID</th>
-                                        <th>Age</th>
+                                        <th>Mobile No</th>
                                         <th>Submission Date</th>
                                         <th>Salary</th>
                                         <th>Action</th>
