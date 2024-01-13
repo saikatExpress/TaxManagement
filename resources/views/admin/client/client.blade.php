@@ -555,7 +555,7 @@
                     </div>
                     <div class="col-4">
                         <div style="text-align:center;">
-                            <input class="btn btn-sm btn-primary" type="button" id="savePrintBtn" value="Save & Print">
+                            <input class="btn btn-sm btn-primary" type="button" id="savePrintBtn" value="Save">
                         </div>
                     </div>
                     <div class="col-4">

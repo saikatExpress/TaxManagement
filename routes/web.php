@@ -52,6 +52,7 @@ Route::middleware(['auth', 'user.status'])->group(function(){
         Route::post('/client/edit', 'update')->name('client.edit');
         Route::post('/client/store', 'store')->name('client.store');
         Route::get('/edit/{id}', 'show')->name('edit');
+        Route::get('/show/{id}', 'clientView')->name('show');
         Route::get('/pdf/delete/{id}', 'destroy');
         Route::get('/client/delete/{id}', 'clientDestroy');
     });

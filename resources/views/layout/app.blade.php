@@ -38,12 +38,12 @@
                         </a></li>
                     <li>
                         <form class="form-inline mr-auto">
-                        <div class="search-element">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="200">
-                            <button class="btn" type="submit">
-                            <i class="fas fa-search"></i>
-                            </button>
-                        </div>
+                            <div class="search-element">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="200">
+                                <button class="btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
                         </form>
                     </li>
                     </ul>
@@ -204,15 +204,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="{{ route('create') }}">Add Client</a></li>
                                 <li><a class="nav-link" href="{{ route('client.list') }}">Client List</a></li>
-                                <li><a class="nav-link" href="{{ route('pdf.list') }}">Pdf List</a></li>
                             </ul>
-                        </li>
-
-                        <li>
-                            <a class="nav-link" href="vector-map.html">
-                                <i data-feather="map-pin"></i>
-                                <span>Vector Map</span>
-                            </a>
                         </li>
 
                     </ul>

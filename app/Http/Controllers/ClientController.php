@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::where('status', '1')->get();
+        $clients = Client::where('status', '1')->latest()->get();
 
         return view('admin.client.list', compact('clients'));
     }
@@ -98,6 +98,7 @@ class ClientController extends Controller
                         return view('admin.file.print_view', compact('clientInfo'));
                         break;
                     case 'save_print':
+                        return redirect()->route('client.list')->with('success', 'Data saved successfully.');
                         $id = $clientObj->id;
 
                         $clientInfo = Client::find($id);
@@ -152,6 +153,15 @@ class ClientController extends Controller
     public function edit(Client $client)
     {
         //
+    }
+
+    public function clientView($id)
+    {
+        $client = Client::find($id);
+
+        return $client;
+
+        return view('admin.client.view');
     }
 
     /**
