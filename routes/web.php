@@ -45,6 +45,9 @@ Route::get('/send-email', function () {
 Route::middleware(['auth', 'user.status'])->group(function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
+    Route::post('/search', [AdminController::class, 'serach'])->name('search');
+    Route::get('/search/result', [AdminController::class, 'searchResult'])->name('search.result');
+
     Route::controller(ClientController::class)->group(function(){
         Route::get('/client/list', 'index')->name('client.list');
         Route::get('/pdf/list', 'pdfIndex')->name('pdf.list');
@@ -67,5 +70,3 @@ Route::middleware(['auth', 'user.status'])->group(function(){
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-

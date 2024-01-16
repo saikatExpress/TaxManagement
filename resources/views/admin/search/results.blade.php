@@ -30,7 +30,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($clients as $key => $pdf)
+                                        @foreach ($results as $key => $pdf)
                                             <tr class="list-item">
                                                 <td>{{ $pdf->name }}</td>
                                                 <td>{{ $pdf->address }}</td>
@@ -104,7 +104,6 @@
             </div>
         </div>
     </section>
-
 
     <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
         aria-hidden="true">
@@ -807,11 +806,6 @@
                     }
                 });
             });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            // alert(1);
         });
     </script>
 @endsection

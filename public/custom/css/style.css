@@ -28,8 +28,10 @@
     display: flex;
 }
 
-span{
+.content-item p{
     color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .my_class{
